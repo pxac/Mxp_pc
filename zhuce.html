@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+body{
+    background-image: url(./img/cat\ and\ dog.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+form{
+    margin: 0 auto;
+    max-width: 400px;
+    height: 400px;
+    padding: 25px 45px;
+    text-align: center;
+
+}
+.dlu{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 40px;
+    color: #a8a8a8;
+    text-shadow: 1px 1px 1px #999;
+}
+div{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 20px;
+}
+div input{
+    padding-left: 10px;
+    width: 270px;
+    height: 35px;
+    border: none;
+    border-radius: 35px;
+    box-shadow:0px 0px 5px #999;
+
+}
+div input:focus {
+    outline: none;
+  }
+form>input{
+    margin-top: 30px;
+    width: 270px;
+    height: 35px;
+    border-radius: 35px;
+    box-shadow:0px 0px 5px #999;
+    background-color: #ca9b66;
+    transition: all 5s;
+}
+form>input:hover{
+    cursor: pointer;
+}
+div>span{
+
+color: #a29999;
+}
+div>a{
+    color: #be6d77;
+}
+#password-error{
+    position: relative;
+    display: none;
+    top: -34px;
+    left: 230px;
+    line-height: 1;
+    color: #ca9b66;
+    font-size: 14px;
+}
+
+    
+    </style>
+</head>
+<body>
+    <span class="dlu">注册</span>
+    <form action="zhuce.php" method="post">
+        <div>
+            <input type="text" id="name" name="name" placeholder="请输入用户名" required>
+        </div>
+        <div>
+            <input type="password" id="pass" name="pass" placeholder="请输入密码                 (密码长度不能小于6)" required>
+        </div>
+        <div>
+            <input type="password" id="qpass" name="qpass" placeholder="请确认密码" required>
+            <br><span id="password-error">密码不一致，请重新输入！</span>
+        </div>
+        <div>
+            <input type="email" id="email" name="email" placeholder="请输入邮箱" required>
+        </div>
+        <input type="submit" value="注 册" name="reg">
+        <div><span>已经有账号了？</span><a href="denglu.html">登录</a></div>
+    </form>
+    <script>
+        //检测两次密码输入一致
+        const passwordInput = document.getElementById('pass');
+        const confirmPasswordInput = document.getElementById('qpass');
+        const passwordError = document.getElementById('password-error');
+        
+        confirmPasswordInput.addEventListener('blur', function() {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+        passwordError.style.display = 'inline';
+        } else {
+        passwordError.style.display = 'none';
+        }
+        });
+    </script>
+</body>
+
+</html>
